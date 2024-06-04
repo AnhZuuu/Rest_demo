@@ -38,13 +38,13 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th><abbr title="Position"></abbr></th>
-                            <th>Name</th>
+                            <th><abbr title="Position"></abbr>Name</th>
+                            <th>Image</th>
                             <th><abbr title="Played">Age</abbr></th>
-                            <th><abbr title="Won">Image</abbr></th>
+                            <th><abbr title="Won">Nation</abbr></th>
                             <th><abbr title="Drawn">Nation</abbr></th>
-                            <th><abbr title="Lost">L</abbr></th>
-                            
+                            <th><abbr title="Lost"></abbr></th>
+
                         </tr>
                     </thead>
 
@@ -53,18 +53,19 @@
 
 
                             <tr>
-                                <th>1</th>
                                 <td>
-                                    <strong>
-                                        <%= bl.name %>
-                                    </strong>
+                                    <strong> <%= bl.name %> </strong>
                                 </td>
-                                <td><img class="image is-640-128" src="<%= bl.img %>" /></td>
-                                <td>23</td>
-                                <td>12</td>
+                                <td><img class="image is-64-128" src="<%= bl.img %>" /></td>
+                                <td>
+                                    <%= bl.age %>
+                                </td>
+                                <td>
+                                    <%= bl.nation %>
+                                </td>
                                 <td>3</td>
                                 <td>
-                                    <button class="button is-danger">Edit</button>
+                                    <button class="button is-danger">Edit</button> <br/> <br/>
                                     <button class="button is-warning" href="/delete/<%= bl.id %>">Delete</button>
                                 </td>
                             </tr>
@@ -78,14 +79,14 @@
                     <div class="field">
                         <label class="label">Name</label>
                         <div class="control">
-                            <input class="input" type="text" placeholder="Text input">
+                            <input class="input" type="text" placeholder="Text input" name="name">
                         </div>
                     </div>
 
                     <div class="field">
-                        <label class="label">Image</label>
+                        <label class="label">Age</label>
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-success" type="text" placeholder="Text input" value="bulma">
+                            <input class="input is-success" type="number" placeholder="Text input" name="age">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                             </span>
@@ -99,7 +100,7 @@
                     <div class="field">
                         <label class="label">URL</label>
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-danger" type="text" placeholder="URL" value="">
+                            <input class="input is-danger" type="text" placeholder="URL" name="img">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                             </span>
@@ -114,7 +115,7 @@
                         <label class="label">Nation</label>
                         <div class="control">
                             <div class="select">
-                                <select>
+                                <select name="nation">
                                     <option value="Vietnam">Select dropdown</option>
                                     <option value="Thailand">Thailand</option>
                                     <option value="Korea">Korea</option>
@@ -149,7 +150,7 @@
 
                     <div class="field is-grouped">
                         <div class="control">
-                            <button class="button is-link">Submit</button>
+                            <button class="button is-link" type="submit">Submit</button>
                         </div>
                         <div class="control">
                             <button class="button is-link is-light">Cancel</button>

@@ -31,7 +31,7 @@ const blackpinkSchema = new Schema({
     },
     nation: {
         type: String,
-        require: true
+        require: true   
     },
     comments: [commentSchema]
 

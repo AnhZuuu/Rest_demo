@@ -4,7 +4,7 @@ const blackpinkController = require('../controller/blackpinkController');
 
 blackpinkRouter.route('/')
 .get(blackpinkController.getBlackpink)
-.get(blackpinkController.create)
+.post(blackpinkController.create)
 
 blackpinkRouter.route('/delete/:blackpinkId')
 .get(blackpinkController.deleteBlackpink)
