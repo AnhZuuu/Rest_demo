@@ -2,6 +2,13 @@ const Blackpink = require('../models/blackpink');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+let nationData = [
+    {"id": "1", "name":"Việt Nam"},
+    {"id": "2", "name":"Korea"},
+    {"id": "3", "name":"Thái Lan"},
+    {"id": "4", "name":"Việt Nam"},
+
+];
 class blackpinkController {
     getAll(req, res) {
         Blackpink.find({})
@@ -46,6 +53,7 @@ class blackpinkController {
         })
         
     }
+    // 4 tháng 6 server-side
     getBlackpink(req, res) {
         Blackpink.find({})
             .then((blackpinks)=> {
@@ -64,6 +72,26 @@ class blackpinkController {
         Blackpink.findByIdAndDelete(req.params.blackpinkId)
         .then(() => res.redirect('/blackpink'));
     }
+    formEdit(req, res) {
+        const blackpinkId = req.params.blackpinkId;
+        let viewData = {};
+        Blackpink.findById(blackpinkId)
+        .then((blackpink) => {
+            res.render('editBlackPink', {
+                title: 'Detail BlackPink',
+                bl: blackpink,
+                nationList : nationData
+            });
+        });
+    }
+    edit(req, res) {
+        Blackpink.updateOne({_id : req.params.blackpinkId}, req.body)
+        .then(() => {
+            res.redirect('/blackpink');
+        })
+    }
+
 }
 
 module.exports = new blackpinkController;
+

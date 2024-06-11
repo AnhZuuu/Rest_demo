@@ -7,6 +7,12 @@ blackpinkRouter.route('/')
 .post(blackpinkController.create)
 
 blackpinkRouter.route('/delete/:blackpinkId')
-.get(blackpinkController.deleteBlackpink)
+.get(blackpinkController.deleteMember)
+
+blackpinkRouter.route('/edit/:blackpinkId')
+.get(blackpinkController.formEdit)
+.post(blackpinkController.edit)
+
+
 
 module.exports = blackpinkRouter;

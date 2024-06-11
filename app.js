@@ -6,7 +6,9 @@ var logger = require('morgan');
 const mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
+// 7 tháng 6 Register
+var usersRouter = require('./routes/userViewRouter');
 const blackpinkRouter = require('./routes/blackpinkViewRouter');
 
 var app = express();
@@ -26,7 +28,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
+app.use('/', blackpinkRouter);
 app.use('/users', usersRouter);
 app.use('/blackpink', blackpinkRouter);
 // catch 404 and forward to error handler

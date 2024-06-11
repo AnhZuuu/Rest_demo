@@ -1,0 +1,11 @@
+<% for (let nation of nationList) { %>
+    <option value="<%=nation.name%>"> <%=nation.name %> </option>
+    <% } %>
+
+
+    <%for (let nation of nationList){ %>
+        <option value="<%= bl.name %>"
+            <%=JSON.stringify(nation.name)===JSON.stringify(bl.nation) ? 'selected' : '' %>><%=
+                nation.name %>
+        </option>
+        <% } %>

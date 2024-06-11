@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+</head>
+
+<body>
+    <%- include('navbar') -%>
+        <div class="container">
+            <div class="columns">
+                <div class="column"></div>
+                <img style="height: 250px; width: 250px;"
+                    src="https://cdn.britannica.com/70/234870-050-D4D024BB/Orange-colored-cat-yawns-displaying-teeth.jpg" />
+                
+                    <div class="column">
+                        <button class="button is-danger">
+                        <% if (typeof errors !='undefined' ) { %>
+                            <% errors.forEach(function (error){ %>
+                                <div class="alert alert-warning alert-dismissible" role="alert">
+                                    <%= error.msg %>
+                                </div>
+                                <% }); %>
+                                    <% } %>
+                    </button>
+
+                    <form method="post">
+                        <div class="field">
+                            <label class="label">Username</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Text input" name="username">
+                            </div>
+                        </div>
+
+
+
+                        <div class="field">
+                            <label class="label">Password</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input is-success" type="text" placeholder="URL" name="password">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <span class="icon is-small is-right">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </span>
+                            </div>
+                            <!-- <p class="help is-danger">This email is invalid</p> -->
+                        </div>
+
+
+
+
+
+
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <button class="button is-link" type="submit">Signup</button>
+                            </div>
+                            <div class="control">
+                                <button class="button is-link is-light">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+</body>
+
+</html>
